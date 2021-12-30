@@ -45,11 +45,16 @@ from ansible.module_utils.connection import ConnectionError
 from ansible.module_utils.six.moves.urllib.error import HTTPError
 from ansible.plugins.httpapi import HttpApiBase
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_list
+from ansible_collections.ansible.netcommon.plugins.connection import Connection
 
 CONTENT_TYPE = 'application/yang-data+json'
 
 
 class HttpApi(HttpApiBase):
+    def __init__(self, connection):
+        self.connection = Connection
+        HttpApiBase.__init_(self, self.connection)
+        
     def send_request(self, data, **message_kwargs):
         if data:
             data = json.dumps(data)
