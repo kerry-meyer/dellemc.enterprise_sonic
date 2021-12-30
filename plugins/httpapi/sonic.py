@@ -39,7 +39,6 @@ options:
 """
 
 import json
-import traceback
 
 from ansible.module_utils._text import to_text
 from ansible.module_utils.connection import ConnectionError
@@ -54,8 +53,7 @@ CONTENT_TYPE = 'application/yang-data+json'
 class HttpApi(HttpApiBase):
     def __init__(self, connection):
         self.connection = Connection
-        traceback.extract_stack()
-        HttpApiBase.__init__(self, self.connection)
+        HttpApiBase.__init_(self, self.connection)
         
     def send_request(self, data, **message_kwargs):
         if data:
