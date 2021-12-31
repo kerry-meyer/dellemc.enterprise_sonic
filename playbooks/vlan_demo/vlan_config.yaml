@@ -1,7 +1,7 @@
 ---
 
 - name: VLANs, Layer 2 and Layer 3 interfaces configuration using Enterprise SONiC resource modules
-  hosts: sender1
+  hosts: senders
   gather_facts: no
   connection: httpapi
   tasks:
@@ -26,7 +26,7 @@
               - vlan: 703
         state: merged
      register: sonic_l2_interfaces_output
-     - name: Configure Layer 3 interfaces
+   - name: Configure Layer 3 interfaces
      dellemc.enterprise_sonic.sonic_l3_interfaces:
        config:
         - name: Eth1/3
@@ -38,4 +38,18 @@
               - address: 3333::1/16
        state: merged
      register: sonic_l3_interfaces_output
-                                                                                                                  1,1           Top
+
+- name: VLANs for receivers
+  hosts: receivers
+  gather_facts: no
+  connection: httpapi
+  tasks:
+   - name: Configure VLANs
+     dellemc.enterprise_sonic.sonic_vlans:
+        config:
+         - vlan_id: 701
+         - vlan_id: 702
+         - vlan_id: 703
+         - vlan_id: 704
+        state: merged
+     register: sonic_vlans_output
