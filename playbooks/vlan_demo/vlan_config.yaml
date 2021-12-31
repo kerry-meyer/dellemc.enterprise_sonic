@@ -26,7 +26,16 @@
               - vlan: 703
         state: merged
      register: sonic_l2_interfaces_output
-   - name: Configure Layer 3 interfaces
+     - name: Configure Layer 3 interfaces
      dellemc.enterprise_sonic.sonic_l3_interfaces:
        config:
+        - name: Eth1/3
+          ipv4:
+            addresses:
+              - address: 8.1.1.1/16
+          ipv6:
+            addresses:
+              - address: 3333::1/16
+       state: merged
+     register: sonic_l3_interfaces_output
                                                                                                                   1,1           Top
