@@ -28,7 +28,7 @@ single_run_idem_condition: "{{ 'Passed' if (single_run_task_output.failed == fal
                                    else 'Failed'
                    }}"
 
-REPORT_DIR: "/home/kerry/logs/ansible/regression/html"
+REPORT_DIR: "/usr/share/ansible/collections/ansible_collections/dellemc/logs"
 empty: []
 
 module_name1: debug
