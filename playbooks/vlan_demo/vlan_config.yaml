@@ -17,18 +17,25 @@
    - name: Configure Layer 2 interfaces
      dellemc.enterprise_sonic.sonic_l2_interfaces:
         config:
-        - name: Eth1/2
-          access:
-            vlan: 701
+        - name: Eth1/1
           trunk:
             allowed_vlans:
+              - vlan: 701
               - vlan: 702
               - vlan: 703
+              - vlan: 704
+        - name: Eth1/2
+          trunk:
+            allowed_vlans:
+              - vlan: 701
+              - vlan: 702
+              - vlan: 703
+              - vlan: 704
         state: merged
      register: sonic_l2_interfaces_output
    - name: Configure Layer 3 interfaces
      dellemc.enterprise_sonic.sonic_l3_interfaces:
-       config:
+        config:
         - name: Eth1/3
           ipv4:
             addresses:
@@ -53,3 +60,27 @@
          - vlan_id: 704
         state: merged
      register: sonic_vlans_output
+   - name: Configure Layer 2 interfaces
+     dellemc.enterprise_sonic.sonic_l2_interfaces:
+        config:
+        - name: Eth1/2
+          trunk:
+            allowed_vlans:
+              - vlan: 701
+              - vlan: 702
+              - vlan: 703
+              - vlan: 704
+        - name: Eth1/3
+          access:
+            vlan: 701
+        - name: Eth1/4
+          access:
+            vlan: 702
+        - name: Eth1/5
+          access:
+            vlan: 703
+        - name: Eth1/6
+          access:
+            vlan: 704
+        state: merged
+     register: sonic_l2_interfaces_output
