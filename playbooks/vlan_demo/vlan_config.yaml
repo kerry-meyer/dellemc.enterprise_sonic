@@ -12,6 +12,7 @@
          - vlan_id: 702
          - vlan_id: 703
          - vlan_id: 704
+         - vlan_id: 705
         state: merged
      register: sonic_vlans_output
    - name: Configure Layer 2 interfaces
@@ -43,6 +44,13 @@
           ipv6:
             addresses:
               - address: 3333::1/16
+        - name: Vlan 705
+          ipv4:
+            addresses:
+              - address: 42.1.1.1/16
+          ipv6:
+            addresses:
+              - address: 4242::1/16
         state: merged
      register: sonic_l3_interfaces_output
 
