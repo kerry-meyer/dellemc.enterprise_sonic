@@ -1,5 +1,5 @@
 spine1 ansible_host=100.94.114.16 ansible_user=admin ansible_password=admin
-leaf1 ansible_host=100.94.114.14 ansible_user=admin ansible_password=admin@dell
+leaf1 ansible_host=100.94.114.14 ansible_user=admin ansible_password=admin
 leaf2 ansible_host=100.94.155.24 ansible_user=admin ansible_password=admin
 
 [spines]
