@@ -43,7 +43,7 @@
           ipv6:
             addresses:
               - address: 3333::1/16
-       state: merged
+        state: merged
      register: sonic_l3_interfaces_output
 
 - name: VLANs for leafs
