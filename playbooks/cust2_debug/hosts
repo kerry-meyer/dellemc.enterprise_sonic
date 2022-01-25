@@ -7,7 +7,6 @@ NewFabric-LEAF-4 ansible_host=10.67.194.6
 
 [spine]
 NewFabric-SPINE-1
-#NewFabric-SPINE-2
 
 [leaf]
 NewFabric-LEAF-1
@@ -17,4 +16,4 @@ NewFabric-LEAF-4
 
 [fabric:children]
 spine
-#leaf
+leaf
