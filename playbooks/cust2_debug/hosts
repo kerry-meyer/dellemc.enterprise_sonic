@@ -15,6 +15,6 @@ NewFabric-LEAF-2
 NewFabric-LEAF-3
 NewFabric-LEAF-4
 
-[all:children]
+[fabric:children]
 spine
 #leaf
