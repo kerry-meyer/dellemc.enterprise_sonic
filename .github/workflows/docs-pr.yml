@@ -94,4 +94,3 @@ jobs:
             ${{ needs.build-docs.outputs.diff-files-rendered }}
 
             ${{ needs.build-docs.outputs.diff-rendered }}
-

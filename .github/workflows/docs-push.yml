@@ -56,4 +56,3 @@ jobs:
       publish-gh-pages-branch: true
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
