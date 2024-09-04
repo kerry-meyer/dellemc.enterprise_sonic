@@ -43,7 +43,8 @@ jobs:
   publish-docs-gh-pages:
     # for now we won't run this on forks
     # Adding the fork trigger for testing only.
-    if: (github.repository == 'ansible-collections/dellemc.enterprise_sonic' or  github.repository == 'kerry-meyer/dellemc.enterprise_sonic')
+    #if: github.repository == 'ansible-collections/dellemc.enterprise_sonic'
+    if: github.repository == 'kerry-meyer/dellemc.enterprise_sonic'
     permissions:
       contents: write
       pages: write
